@@ -11,6 +11,7 @@
   /* Orange */
   --color-gray: #252836;
   /* Secondary text */
+  --cugray: #48494D;
 
   /* Font families */
   --font-sans: var(--font-inter), sans-serif;
@@ -29,4 +30,8 @@
   a {
     @apply transition-colors duration-200;
   }
+}
+
+.shadow {
+  box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.288);
 }

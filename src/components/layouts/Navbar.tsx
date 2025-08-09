@@ -3,11 +3,15 @@ import { Button } from "@/components/ui/Button";
 import Image from "next/image";
 import Logo from "@/assets/logo.svg";
 import radial_ellipse from "@/assets/images/radial_ellipse.svg";
+import HeroImage from "@/assets/images/hero_image.png";
+
 
 export default function Navbar() {
     return (
         <header>
-            <nav className="bg-secondary">
+            <nav>
+                <Image src={HeroImage} alt="hero illustration" className="absolute top-0 right-0" />
+
                 <Image src={radial_ellipse} alt="radial_ellipse" className="absolute top-0 right-0 w-[80%] h-[120vh] z-0" />
                 <div className="container mx-auto px-6 flex items-center justify-between py-4 relative z-60">
                     <Link href="/" className="flex items-center space-x-2">

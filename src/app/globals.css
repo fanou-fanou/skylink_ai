@@ -3,10 +3,14 @@
 /* Theme customization */
 @theme {
   /* Brand colors */
-  --color-primary: #00B4D8; /* Light blue */
-  --color-secondary: #07070D; /* Dark background */
-  --color-accent: #C87851; /* Orange */
-  --color-gray: #252836; /* Secondary text */
+  --color-primary: #00B4D8;
+  /* Light blue */
+  --color-secondary: #07070D;
+  /* Dark background */
+  --color-accent: #C87851;
+  /* Orange */
+  --color-gray: #252836;
+  /* Secondary text */
 
   /* Font families */
   --font-sans: var(--font-inter), sans-serif;

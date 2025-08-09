@@ -19,6 +19,7 @@ import testimonials_2 from "@/assets/images/testimonials_2.jpg";
 import testimonials_3 from "@/assets/images/testimonials_3.jpg";
 import testimonials_4 from "@/assets/images/testimonials_4.jpg";
 import { StaticImageData } from "next/image";
+import { JSX } from "react";
 
 /**
  * Type representing a simple advantage item.
@@ -90,10 +91,12 @@ export const advantageAside: AdvantageAside[] = [
 /**
  * Type representing a feature with icon, title, and description.
  */
+
 interface Feature {
-  icon: string;          // Path to the SVG icon
-  title: string;         // Feature title
-  description: string;   // Detailed description
+  icon: string | StaticImageData; // Path to the SVG icon
+  title: string | JSX.Element;    // Can be plain text or JSX
+  description: string | JSX.Element; // Same here if you want <br/> etc.
+  top: number;                    // Position offset in pixels
 }
 
 /**
@@ -103,40 +106,41 @@ export const features: Feature[] = [
   {
     icon: chatbot,
     title: "Chatbot intelligent intégré",
-    description:
-      "Répond automatiquement à 5 questions fréquentes grâce à l’IA.",
+    description: "Répond automatiquement à 5 questions fréquentes grâce à l’IA.",
+    top: 26
   },
   {
     icon: devices,
     title: "Hero responsive et attractif",
-    description:
-      "Une section d’accueil visuellement percutante et mobile-friendly.",
+    description: "Une section d’accueil visuellement percutante et mobile-friendly.",
+    top: 18
   },
   {
     icon: seomobile,
-    title: "Génération automatique de balises SEO",
-    description:
-      "Optimise votre présence sur Google sans effort manuel.",
+    title: <>Génération automatique<br /> de balises SEO</>,
+    description: "Optimise votre présence sur Google sans effort manuel.",
+    top: 16
   },
   {
     icon: database,
-    title: "Formulaire connecté à Supabase + Slack",
-    description:
-      "Collecte de données centralisée et notifications en temps réel.",
+    title: <>Formulaire connecté à<br /> Supabase + Slack</>,
+    description: "Collecte de données centralisée et notifications en temps réel.",
+    top: 16
   },
   {
     icon: boat,
-    title: "Score PageSpeed mobile plus 70 garanti",
-    description:
-      "Performance assurée pour une expérience utilisateur rapide.",
+    title: <>Score PageSpeed mobile<br /> plus 70 garanti</>,
+    description: "Performance assurée pour une expérience utilisateur rapide.",
+    top: 27
   },
   {
     icon: security,
     title: "Architecture sécurisée",
-    description:
-      "Protection des données utilisateurs avec les bonnes pratiques modernes.",
+    description: "Protection des données utilisateurs avec les bonnes pratiques modernes.",
+    top: 16
   },
 ];
+
 
 /**
  * Type representing a client testimonial with image, text, and name.

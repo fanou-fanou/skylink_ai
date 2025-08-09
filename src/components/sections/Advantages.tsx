@@ -33,7 +33,7 @@ function AdvantageItem({
 
 export default function Advantages() {
     return (
-        <section className="relative pt-30">
+        <section className="relative pt-30" id="advantages">
             <div className="container mx-auto px-4 md:px-8">
                 <div className="flex flex-col md:flex-row">
                     {/* Colonne gauche */}

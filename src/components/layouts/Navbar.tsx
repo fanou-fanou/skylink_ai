@@ -19,8 +19,8 @@ export default function Navbar() {
                     </Link>
                     <ul className="hidden md:flex items-center space-x-12 text-white">
                         <li><Link href="#home">Accueil</Link></li>
-                        <li><Link href="#features">Fonctionnalités</Link></li>
                         <li><Link href="#advantages">Avantages</Link></li>
+                        <li><Link href="#features">Fonctionnalités</Link></li>
                         <li><Link href="#testimonials">Témoignages</Link></li>
                         <li><Link href="#contact">Contact</Link></li>
                     </ul>

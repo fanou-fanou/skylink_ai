@@ -30,7 +30,7 @@ export default function Contact() {
                             </ul>
                         </div>
                         <div className="mt-7">
-                            <form className="relative top-18" >
+                            <form className="relative " >
                                 <div className="flex">
                                     <div className="mt-3 p-5">
                                         <label htmlFor="fullname" className="font-semibold">Nom Complet: </label>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
+import { MouseEventHandler } from "react";
 
 const buttonVariants = cva(
   // cursor-pointer as default
@@ -49,7 +50,7 @@ export function Button({
   if (href && !disabled) {
     // Only pass safe props to Link (don't spread raw button props).
     return (
-      <Link href={href} className={classes} onClick={onClick as any}>
+      <Link href={href} className={classes} onClick={onClick as MouseEventHandler}>
         {children}
       </Link>
     );

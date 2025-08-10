@@ -1,6 +1,7 @@
 import Image from "next/image";
 import wave from "@/assets/images/wave.svg";
 import { advantages, advantageAside } from "@/lib/data";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 function AdvantageItem({
     icon,
@@ -9,7 +10,7 @@ function AdvantageItem({
     isLeftItem = true,
     isAltBg = false,
 }: {
-    icon: any;
+    icon: string | StaticImport;
     title: string;
     description: string;
     isAltBg?: boolean;

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/Button";
-import Image from 'next/image';
+import Image from "next/image";
 import brain from "@/assets/icons/brain.svg";
 
 export default function Hero() {
@@ -9,7 +9,7 @@ export default function Hero() {
         <div className="w-[50%]">
           <div className="text-sm text-white mb-2 flex items-center space-x-3">
             <Image src={brain} alt="brain" />
-            <p >Site IA en seulement <span className="text-primary">7 jours</span> – à partir de <span className="text-primary">2'200 CHF</span></p>
+            <p >Site IA en seulement <span className="text-primary">7 jours</span> – à partir de <span className="text-primary">2&apos;200 CHF</span></p>
           </div>
           <h1 className="text-4xl md:text-7xl font-medium mb-4 leading-snug">
             Lancez Rapidement<br/> Votre <span className="text-primary">Projet</span> avec <br/> notre <span className="text-primary">solution</span>.

@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 interface IconProps {
   src: string;
   alt: string;
@@ -6,7 +8,7 @@ interface IconProps {
 
 export function Icon({ src, alt, size = 40 }: IconProps) {
   return (
-    <img
+    <Image
       src={src}
       alt={alt}
       width={size}

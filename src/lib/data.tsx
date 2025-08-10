@@ -30,6 +30,7 @@ import facebook from "@/assets/icons/facebook.svg";
 import instagram from "@/assets/icons/instagram.svg";
 import x from "@/assets/icons/x.svg";
 import github from "@/assets/icons/github.svg";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
 
 /**
@@ -167,7 +168,7 @@ interface Testimonial {
  */
 export const testimonials: Testimonial[] = [
   {
-    image: testimonials_1,
+    image: testimonials_3,
     text: "Je perdais trop de temps à répondre aux interrogations répétées de mes clients. Maintenant, avec cette IA, tout est géré en temps réel et je peux avancer sur mes projets prioritaires.",
     name: "Julie Martin",
   },
@@ -178,7 +179,7 @@ export const testimonials: Testimonial[] = [
     name: "Marilyne Blanca",
   },
   {
-    image: testimonials_3,
+    image: testimonials_1,
     text:
       "Avant, je passais des heures à traiter les mêmes questions de mes clients. Depuis que j’utilise cet outil IA, les réponses arrivent sur-le-champ, et je peux enfin me concentrer sur le reste.",
     name: "Karim Diallo",
@@ -193,7 +194,7 @@ export const testimonials: Testimonial[] = [
 
 
 interface Contact {
-  image: any;  
+  image: StaticImport;  
   value: string;
 }
 
@@ -215,7 +216,7 @@ export  const contact: Contact[] = [
 
 
 interface SocialNetwork {
-  image: any;
+  image: StaticImport;
   link: string;
 }
 

@@ -1,11 +1,10 @@
-import { clsx } from "clsx";
+import { clsx, type ClassValue } from "clsx";
 import React from "react";
 import { twMerge } from "tailwind-merge";
 
-export function cn(...inputs: any[]) {
+export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
-
 
 export function jsxToString(node: React.ReactNode): string {
   if (typeof node === "string" || typeof node === "number") {

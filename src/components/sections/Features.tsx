@@ -19,7 +19,8 @@ export default function Features() {
                         <Image
                             src={value.icon}
                             alt={typeof value.title === "string" ? value.title : jsxToString(value.title)}
-                            className={`absolute left-1/2 -translate-x-1/2 -top-${value.top}`}
+                            className="absolute left-1/2 -translate-x-1/2 -top-27" 
+                             style={{ top: `calc(var(--spacing) * -${value.top})` }}
                         />
                         <h3 className="font-semibold text-2xl leading-9 h-10">{value.title}</h3>
                         <p className="text-gray-300 mt-14 mx-5 leading-7 font-light">{value.description}</p>

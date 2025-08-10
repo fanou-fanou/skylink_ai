@@ -21,6 +21,11 @@ import testimonials_4 from "@/assets/images/testimonials_4.jpg";
 import { StaticImageData } from "next/image";
 import { JSX } from "react";
 
+
+import phone from "@/assets/icons/phone.svg";
+import email from "@/assets/icons/email.svg";
+import place from "@/assets/icons/place.svg";
+
 /**
  * Type representing a simple advantage item.
  */
@@ -179,3 +184,25 @@ export const testimonials: Testimonial[] = [
     name: "Sophie Lambert",
   },
 ];
+
+
+interface Contact {
+  image: any;  
+  value: string;
+}
+
+
+export  const contact: Contact[] = [
+  {
+    image: phone,
+    value: "078.268.24.98"
+  },
+  {
+    image: email,
+    value: "skylinkagency.pro@gmail.com"
+  },
+  {
+    image: place,
+    value: "Genève"
+  }
+]

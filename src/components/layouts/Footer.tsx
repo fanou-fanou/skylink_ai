@@ -1,37 +1,71 @@
+import Link from "next/link";
 import Logo from "@/assets/logo.svg";
 import Image from "next/image";
+import { socialNetwork } from "@/lib/data";
 
 export default function Footer() {
     return (
         <footer className="pt-35">
-            <div className="container mx-auto">
+            <div className="container mx-auto mt-10 pb-6">
                 <div className="flex">
-                    <div>
+                    <div className="w-2/4">
                         <Image src={Logo} alt="Logo" />
-                        <p>Une solution IA moderne, rapide et adaptée à vos besoins.  Optimisez votre présence en ligne avec une technologie performante.</p>
+                        <p className="leading-8 mt-4 pr-20 font-light">
+                          Une solution IA moderne, rapide et adaptée à vos besoins. Optimisez votre présence en ligne avec une technologie performante.
+                        </p>
+                        <div className="flex mt-9">
+                            {
+                                socialNetwork.map((value , index) => (
+                                    <Link key={index} target="_blank" href={value.link} className="bg-[rgb(165,183,223,0.19)] w-10 h-10 mr-2 shadow rounded-[100%] flex items-center justify-center" ><Image src={value.image} alt={value.link.split(".")[1]} /></Link>
+                                ))
+                            }
+                        </div>
                     </div>
-                    <div>
-                        <h2>Plan du Site</h2>
-                        <ul>
-                            <li>Accueil</li>
-                            <li>Avantages</li>
-                            <li>Fonctionnalités</li>
-                            <li>Témoignages</li>
-                            <li>Contact</li>
+                    <div className="w-1/4">
+                        <h2 className="text-primary text-2xl">Plan du Site</h2>
+                        <ul className="mt-5 font-light">
+                            <li className="mt-3">
+                              <Link href="#home" className="hover:text-primary">Accueil</Link>
+                            </li>
+                            <li className="mt-3">
+                              <Link href="#advantages" className="hover:text-primary">Avantages</Link>
+                            </li>
+                            <li className="mt-3">
+                              <Link href="#features" className="hover:text-primary">Fonctionnalités</Link>
+                            </li>
+                            <li className="mt-3">
+                              <Link href="#testimonials" className="hover:text-primary">Témoignages</Link>
+                            </li>
+                            <li className="mt-3">
+                              <Link href="#contact" className="hover:text-primary">Contact</Link>
+                            </li>
                         </ul>
                     </div>
-                    <div>
-                        <h2>Mentions légales</h2>
-                         <ul>
-                            <li>Conditions d'utilisation</li>
-                            <li>Politique de confidentialité</li>
-                            <li>Gestion des cookies</li>
-                            <li>Propriété intellectuelle</li>
-                            <li>Accessibilité</li>
+                    <div className="w-1/4">
+                        <h2 className="text-primary text-2xl">Mentions légales</h2>
+                        <ul className="mt-5 font-light">
+                            <li className="mt-3">
+                              <Link href="#conditions" className="hover:text-primary">Conditions d&apos;utilisation</Link>
+                            </li>
+                            <li className="mt-3">
+                              <Link href="#privacy" className="hover:text-primary">Politique de confidentialité</Link>
+                            </li>
+                            <li className="mt-3">
+                              <Link href="#cookies" className="hover:text-primary">Gestion des cookies</Link>
+                            </li>
+                            <li className="mt-3">
+                              <Link href="#ip" className="hover:text-primary">Propriété intellectuelle</Link>
+                            </li>
+                            <li className="mt-3">
+                              <Link href="#accessibility" className="hover:text-primary">Accessibilité</Link>
+                            </li>
                         </ul>
                     </div>
                 </div>
             </div>
+            <div className="border-t border-[#ffffff24] text-center py-2">
+                <p className="text-xs font-extralight">© 2025 SkyLink Agency – Tous droits réservés</p>
+            </div>
         </footer>
-    )
+    );
 }

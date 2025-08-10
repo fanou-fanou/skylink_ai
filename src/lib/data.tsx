@@ -26,6 +26,12 @@ import phone from "@/assets/icons/phone.svg";
 import email from "@/assets/icons/email.svg";
 import place from "@/assets/icons/place.svg";
 
+import facebook from "@/assets/icons/facebook.svg";
+import instagram from "@/assets/icons/instagram.svg";
+import x from "@/assets/icons/x.svg";
+import github from "@/assets/icons/github.svg";
+
+
 /**
  * Type representing a simple advantage item.
  */
@@ -204,5 +210,30 @@ export  const contact: Contact[] = [
   {
     image: place,
     value: "Genève"
+  }
+]
+
+
+interface SocialNetwork {
+  image: any;
+  link: string;
+}
+
+export const socialNetwork: SocialNetwork[] = [
+  {
+    image: facebook,
+    link: "https://www.facebook.com/profile.php?id=61569180991583#"
+  },
+  {
+    image: instagram,
+    link: "https://www.instagram.com/sky.linkagency/"
+  },
+  {
+     image: x,
+    link: "https://www.x.com"
+  },
+   {
+     image: github,
+    link: "https://www.github.com/"
   }
 ]

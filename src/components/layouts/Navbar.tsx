@@ -5,7 +5,6 @@ import Logo from "@/assets/logo.svg";
 import radial_ellipse from "@/assets/images/radial_ellipse.svg";
 import HeroImage from "@/assets/images/hero_image.png";
 
-
 export default function Navbar() {
     return (
         <header>
@@ -18,11 +17,11 @@ export default function Navbar() {
                         <Image src={Logo} alt="Logo" />
                     </Link>
                     <ul className="hidden md:flex items-center space-x-12 text-white">
-                        <li><Link href="#home">Accueil</Link></li>
-                        <li><Link href="#advantages">Avantages</Link></li>
-                        <li><Link href="#features">Fonctionnalités</Link></li>
-                        <li><Link href="#testimonials">Témoignages</Link></li>
-                        <li><Link href="#contact">Contact</Link></li>
+                        <li><Link href="#home" className="hover:text-primary">Accueil</Link></li>
+                        <li><Link href="#advantages" className="hover:text-primary">Avantages</Link></li>
+                        <li><Link href="#features" className="hover:text-primary">Fonctionnalités</Link></li>
+                        <li><Link href="#testimonials" className="hover:text-primary">Témoignages</Link></li>
+                        <li><Link href="#contact" className="hover:text-primary">Contact</Link></li>
                     </ul>
                     <div className="flex space-x-3">
                         <Button href="#login" variant="secondary">Se connecter</Button>

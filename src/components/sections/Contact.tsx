@@ -74,7 +74,7 @@ export default function Contact() {
                 </div>
             </div>
 
-            <div className="bg-secondary w-full absolute h-160 top-240"></div>
+            <div className="bg-secondary w-full absolute h-160 top-240 hidden md:block" ></div>
         </section>
     );
 }

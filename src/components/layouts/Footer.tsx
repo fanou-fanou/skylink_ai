@@ -6,14 +6,14 @@ import { socialNetwork } from "@/lib/data";
 export default function Footer() {
     return (
         <footer className="pt-35">
-            <div className="container mx-auto mt-10 pb-6">
+            <div className="container mx-auto  pb-6">
                 {/* Flex + Wrap pour responsive */}
-                <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap gap-y-8">
+                <div className="flex flex-col sm:flex-row sm:flex-wrap md:flex-nowrap gap-y-8 px-6 md:px-0">
                     
                     {/* Colonne 1 */}
-                    <div className="w-full sm:w-1/2 md:w-2/4">
+                    <div className="w-full sm:w-1/2 md:w-2/4 mt-10">
                         <Image src={Logo} alt="Logo" />
-                        <p className="leading-8 mt-4 pr-20 font-light">
+                        <p className="leading-8 mt-4 pr-0 md:pr-20 font-light">
                             Une solution IA moderne, rapide et adaptée à vos besoins. Optimisez votre présence en ligne avec une technologie performante.
                         </p>
                         <div className="flex mt-9">
@@ -31,7 +31,7 @@ export default function Footer() {
                     </div>
 
                     {/* Colonne 2 */}
-                    <div className="w-full sm:w-1/2 md:w-1/4">
+                    <div className="w-full sm:w-1/2 md:w-1/4 mt-10">
                         <h2 className="text-primary text-2xl">Plan du Site</h2>
                         <ul className="mt-5 font-light">
                             <li className="mt-3"><Link href="#home" className="hover:text-primary">Accueil</Link></li>
@@ -43,7 +43,7 @@ export default function Footer() {
                     </div>
 
                     {/* Colonne 3 */}
-                    <div className="w-full sm:w-full md:w-1/4">
+                    <div className="w-full sm:w-full md:w-1/4 mt-10">
                         <h2 className="text-primary text-2xl">Mentions légales</h2>
                         <ul className="mt-5 font-light">
                             <li className="mt-3"><Link href="#conditions" className="hover:text-primary">Conditions d&apos;utilisation</Link></li>

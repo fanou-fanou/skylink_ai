@@ -13,7 +13,7 @@ export default function Features() {
             <div className=" grid grid-cols-1 md:grid-cols-3 gap-8">
                 {features.map((value, index) => (
                     <div
-                        className="mt-30 pt-25 mx-10 bg-gray rounded-2xl pb-8 px-6 items-center relative"
+                        className="mt-30 pt-25 mx-0 md:mx-10 bg-gray rounded-2xl pb-8 px-6 items-center relative"
                         key={index}
                     >
                         <Image
@@ -22,7 +22,7 @@ export default function Features() {
                             className="absolute left-1/2 -translate-x-1/2 -top-27" 
                              style={{ top: `calc(var(--spacing) * -${value.top})` }}
                         />
-                        <h3 className="font-semibold text-2xl leading-9 h-10">{value.title}</h3>
+                        <h3 className="font-semibold text-xl md:text-2xl leading-9 h-10">{value.title}</h3>
                         <p className="text-gray-300 mt-14 mx-5 leading-7 font-light">{value.description}</p>
                     </div>
                 ))}

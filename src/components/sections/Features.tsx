@@ -23,7 +23,7 @@ export default function Features() {
                              style={{ top: `calc(var(--spacing) * -${value.top})` }}
                         />
                         <h3 className="font-semibold text-xl md:text-2xl leading-9 h-10">{value.title}</h3>
-                        <p className="text-gray-300 mt-14 mx-5 leading-7 font-light">{value.description}</p>
+                        <p className="text-gray-300 text- mt-14 mx-5 leading-7 font-light">{value.description}</p>
                     </div>
                 ))}
             </div>

@@ -5,8 +5,8 @@ import Image from "next/image";
 export default function Features() {
     return (
         <section className="container mx-auto py-30 px-8 text-center" id="features">
-            <h2 className="text-primary font-medium text-2xl mt-20">Fonctionnalités</h2>
-            <p className="font-medium text-5xl leading-20 mt-2 mb-20">
+            <h2 className="text-primary font-medium text-lg md:text-2xl mt-20">Fonctionnalités</h2>
+            <p className="font-medium text-3xl md:text-5xl leading-10 md:leading-20 mt-2 mb-20">
                 Découvrez les atouts qui font la différence
             </p>
 

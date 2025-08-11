@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { MouseEventHandler } from "react";
 
 const buttonVariants = cva(
-  // cursor-pointer as default
   "px-5 py-2 rounded-md font-medium transition-colors duration-200 cursor-pointer",
   {
     variants: {

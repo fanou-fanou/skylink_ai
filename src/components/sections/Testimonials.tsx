@@ -22,8 +22,8 @@ export default function Testimonials() {
   return (
     <section className="relative py-30" id="testimonials">
       <div className="container mx-auto px-4 md:px-8">
-        <h2 className="text-primary font-medium text-lg md:text-2xl">Témoignages clients</h2>
-        <p className="font-medium text-3xl md:text-5xl leading-10 md:leading-20 mt-2">
+        <h2 className="text-primary font-medium text-lg md:text-xl lg:text-2xl">Témoignages clients</h2>
+        <p className="font-medium text-3xl md:text-4xl lg:text-5xl leading-10 md:leading-15 mt-2">
           Ils ont transformé leur <br /> business avec nous
         </p>
       </div>

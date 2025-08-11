@@ -21,8 +21,8 @@ export default function Navbar() {
       <nav>
         {/* Images de fond */}
         <Image src={HeroImage} alt="hero illustration" className="absolute top-0 right-0 hidden lg:block" />
-        <Image src={radial_ellipse} alt="radial ellipse" className="absolute top-0 right-0 w-[80%] hidden md:block h-[120vh] z-0" />
-        <Image src={ellipse_mobile} alt="radial ellipse" className="absolute top-0 right-0 block md:hidden w-full md:w-[80%] object-cover h-150vh md:h-[120vh] z-0" />
+        <Image src={radial_ellipse} alt="radial ellipse" className="absolute top-0 right-0 w-[80%] hidden lg:block h-[120vh] z-0" />
+        <Image src={ellipse_mobile} alt="radial ellipse" className="absolute top-0 right-0 block lg:hidden w-full lg:w-[80%] object-cover h-150vh md:h-[120vh] z-0" />
 
         <div className="container mx-auto px-6 flex items-center justify-between py-4 relative z-90">
           {/* Logo */}
@@ -31,7 +31,7 @@ export default function Navbar() {
           </Link>
 
           {/* Menu Desktop */}
-          <ul className="hidden md:flex items-center space-x-12 lg:space-x-5 text-white">
+          <ul className="hidden lg:flex items-center space-x-12 lg:space-x-5 text-white">
             <li><Link href="#home" className="hover:text-primary">Accueil</Link></li>
             <li><Link href="#advantages" className="hover:text-primary">Avantages</Link></li>
             <li><Link href="#features" className="hover:text-primary">Fonctionnalités</Link></li>
@@ -40,7 +40,7 @@ export default function Navbar() {
           </ul>
 
           {/* Boutons Desktop */}
-          <div className="hidden md:flex space-x-3 lg:space-x-1">
+          <div className="hidden lg:flex space-x-3 lg:space-x-1">
             <Button href="#login" variant="secondary">Se connecter</Button>
             <Button href="#register">S’inscrire</Button>
           </div>
@@ -48,7 +48,7 @@ export default function Navbar() {
           {/* Bouton Menu Mobile */}
           <button
             onClick={() => setMenuOpen(true)}
-            className="md:hidden text-white focus:outline-none"
+            className="lg:hidden text-white focus:outline-none cursor-pointer"
           >
             <Image src={menu} alt="mobile menu" />
           </button>

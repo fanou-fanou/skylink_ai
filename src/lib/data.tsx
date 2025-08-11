@@ -14,10 +14,10 @@ import database from "@/assets/icons/database.svg";
 import boat from "@/assets/icons/boat.svg";
 import security from "@/assets/icons/security.svg";
 
-import testimonials_1 from "@/assets/images/testimonials_1.jpg";
-import testimonials_2 from "@/assets/images/testimonials_2.jpg";
-import testimonials_3 from "@/assets/images/testimonials_3.jpg";
-import testimonials_4 from "@/assets/images/testimonials_4.jpg";
+import testimonials_1 from "@/assets/images/testimonials_1-min.jpg";
+import testimonials_2 from "@/assets/images/testimonials_2-min.jpg";
+import testimonials_3 from "@/assets/images/testimonials_3-min.jpg";
+import testimonials_4 from "@/assets/images/testimonials_4-min.jpg";
 import { StaticImageData } from "next/image";
 import { JSX } from "react";
 

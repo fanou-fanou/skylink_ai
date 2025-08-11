@@ -17,7 +17,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header>
+    <header id="home">
       <nav>
         {/* Images de fond */}
         <Image src={HeroImage} alt="hero illustration" className="absolute top-0 right-0 hidden lg:block" />

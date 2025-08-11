@@ -6,22 +6,22 @@ import { contact } from "@/lib/data";
 
 export default function Contact() {
     return (
-        <section id="contact" className="relative pt-10 w-full h-full">
+        <section id="contact" className="relative pt-0 md:pt-10 w-full h-full">
             <Image
                 src={ellipse_spread}
                 alt="ellipse spread"
-                className="w-full rounded-[100%] blur-3xl h-full top-40 absolute object-cover"
+                className="w-full rounded-[100%] blur-3xl h-full -top-40 md:top-40 absolute object-cover"
             />
-            <div className="container mx-auto py-30 px-8 text-center relative z-10 pb-20">
-                <h2 className="font-medium text-5xl leading-20 mt-20 text-primary">
+            <div className="container mx-auto py-0 md:py-30 px-2 md:px-8 text-center relative z-10 pb-20">
+                <h2 className="font-medium text-3xl md:text-5xl leading-10 md:leading-20 mt-20 text-primary">
                     Contactez-nous
                 </h2>
-                <p className="font-light text-2xl mt-10 leading-12">
-                    Remplissez le formulaire ci-dessous et notre équipe vous répondra rapidement.<br />
+                <p className="font-light text-lg md:text-2xl mt-10 md:leading-12">
+                    Remplissez le formulaire ci-dessous et notre équipe vous répondra rapidement.<br className="hidden md:block" />
                     Nous sommes là pour répondre à toutes vos questions.
                 </p>
 
-                <div className="bg-secondary mt-40 text-left rounded-4xl">
+                <div className="bg-secondary mt-10 md:mt-40 text-left rounded-4xl">
                     {/* Flex avec inversion sur mobile */}
                     <div className="flex flex-col md:flex-row">
                         
@@ -53,7 +53,7 @@ export default function Contact() {
                         </div>
 
                         {/* Coordonnées */}
-                        <div className="order-2 md:order-1 md:w-[30%] m-5 rounded-4xl px-8 md:px-16 py-10 md:py-20 bg-[linear-gradient(119deg,rgb(37,40,54)_0%,rgba(0,180,216,0.38)_53%,rgba(0,180,216,0.63)_82%)]">
+                        <div className="order-2 md:order-1 md:w-[30%] m-5 rounded-4xl px-5 md:px-8 py-10 md:py-20 bg-[linear-gradient(119deg,rgb(37,40,54)_0%,rgba(0,180,216,0.38)_53%,rgba(0,180,216,0.63)_82%)]">
                             <h3 className="font-semibold text-2xl">Nos coordonnées</h3>
                             <p className="leading-7 mt-5">
                                 Tu préfères nous contacter directement ? Voici comment nous joindre.

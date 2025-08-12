@@ -43,7 +43,7 @@ export default function Chatbot() {
       const botAnswer = data.answer || "Pas de réponse trouvée.";
       const botMessage: Message = { from: "bot", text: botAnswer };
       setMessages((prev) => [...prev, botMessage]);
-    } catch (error) {
+    } catch {
       const errorMessage: Message = { from: "bot", text: "Erreur de communication." };
       setMessages((prev) => [...prev, errorMessage]);
     } finally {
@@ -122,7 +122,7 @@ export default function Chatbot() {
             {loading && (
               <div className="flex justify-start">
                 <div className="bg-gray w-fit max-w-[80%] break-words px-3 py-2 rounded-lg mx-2 my-1 text-sm italic text-gray-300">
-                  En train d'écrire...
+                  En train d&apos;écrire...
                 </div>
               </div>
             )}

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { z } from "zod";
-import { Button } from "../ui/Button";
+import toast, { Toaster } from "react-hot-toast";
 
 const contactSchema = z.object({
     fullname: z.string().min(3, { message: "Le nom complet doit contenir au moins 3 caractères." }),
@@ -62,17 +62,18 @@ export default function ContactForm() {
 
     if (!res.ok) throw new Error(json.error || "Erreur serveur");
 
-    alert("Message envoyé avec succès !");
+    toast.success("Message envoyé avec succès !");
     setFormData({ fullname: "", email: "", subject: "", message: "" });
     setErrors({});
-  } catch (error: any) {
-    alert("Erreur lors de l'envoi: " + error.message);
-  }
-};
+  } catch {
+      toast.error("Erreur lors de l'envoi");
+    }
+  };
 
 
     return (
-        <form className="relative" onSubmit={handleSubmit} noValidate>
+      <>
+          <form className="relative" onSubmit={handleSubmit} noValidate>
             <div className="flex flex-col sm:flex-row">
                 <div className="mt-3 p-5 w-full">
                     <label htmlFor="fullname" className="font-semibold">
@@ -150,5 +151,7 @@ export default function ContactForm() {
                 <button type="submit" className="px-5 transition-colors duration-200 cursor-pointer py-2 rounded-md font-semibold text-white bg-primary hover:bg-primary/80">Envoyer</button>
             </div>
         </form>
+        <Toaster position="bottom-left" />
+      </>
     );
 }

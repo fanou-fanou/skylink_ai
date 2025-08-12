@@ -57,7 +57,7 @@ export default function Footer() {
             </div>
 
             <div className="border-t border-[#ffffff24] text-center py-2">
-                <p className="text-xs font-extralight">© 2025 SkyLink Agency – Tous droits réservés</p>
+                <p className="text-xs font-extralight">© 2025 SkyLink Agency IA – Tous droits réservés</p>
             </div>
         </footer>
     );

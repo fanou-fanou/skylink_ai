@@ -1,3 +1,4 @@
+import Chatbot from "@/components/features/Chatbot";
 import Footer from "@/components/layouts/Footer";
 import Navbar from "@/components/layouts/Navbar";
 import Advantages from "@/components/sections/Advantages";
@@ -13,6 +14,7 @@ export default function Home() {
       <main>
           <Hero/>
           <Advantages/>
+          <Chatbot/>
           <Features/>
           <Testimonials />
           <Contact />

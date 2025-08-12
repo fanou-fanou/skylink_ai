@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/Button";
 import Image from "next/image";
 import brain from "@/assets/icons/brain.svg";
-import { JSX } from "react";
 
 /**
  * Composant Hero affichant la section principale d'accroche

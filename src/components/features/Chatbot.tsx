@@ -19,14 +19,14 @@ export default function Chatbot() {
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
-  // Scroll automatique en bas à chaque nouveau message
+  // Scroll automatique en bas à chaque nouveau message ou chargement
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages, loading]);
 
   async function sendMessage() {
     if (!input.trim()) return;
-    const userMessage = { from: "user", text: input.trim() };
+    const userMessage: Message = { from: "user", text: input.trim() };
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setLoading(true);
@@ -41,19 +41,21 @@ export default function Chatbot() {
       const data = await res.json();
 
       const botAnswer = data.answer || "Pas de réponse trouvée.";
-      setMessages((prev) => [...prev, { from: "bot", text: botAnswer }]);
+      const botMessage: Message = { from: "bot", text: botAnswer };
+      setMessages((prev) => [...prev, botMessage]);
     } catch (error) {
-      setMessages((prev) => [...prev, { from: "bot", text: "Erreur de communication." }]);
+      const errorMessage: Message = { from: "bot", text: "Erreur de communication." };
+      setMessages((prev) => [...prev, errorMessage]);
     } finally {
       setLoading(false);
     }
   }
 
-  // Envoi quand on presse Enter
+  // Envoi quand on presse Enter (sans shift)
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
     if (e.key === "Enter" && !e.shiftKey) {
       e.preventDefault();
-      sendMessage();
+      if (!loading) sendMessage();
     }
   }
 
@@ -96,7 +98,7 @@ export default function Chatbot() {
                 <Image src={robot_one} alt="chatbot user" className="w-full" />
               </div>
               <div>
-                <h4 className="font-semibold text-lg">Skylink FAQ Chatbot</h4>
+                <h4 className="font-semibold text-md md:text-lg">FAQ Chatbot</h4>
                 <p className="text-xs">Assistance IA 24h/24 et 7j/7</p>
               </div>
             </div>

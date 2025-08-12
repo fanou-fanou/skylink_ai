@@ -86,7 +86,7 @@ export default function Contact() {
             </div>
 
             {/* Coordonnées */}
-            <div className="order-2 lg:order-1 px-5 py-10 rounded-4xl bg-[linear-gradient(119deg,rgb(37,40,54)_0%,rgba(0,180,216,0.38)_53%,rgba(0,180,216,0.63)_82%)] mt-7 lg:mt-0 max-w-full lg:max-w-[30%] mx-auto lg:mx-0">
+            <div className="order-2 lg:order-1 px-5 md:px-10 py-10 rounded-4xl bg-[linear-gradient(119deg,rgb(37,40,54)_0%,rgba(0,180,216,0.38)_53%,rgba(0,180,216,0.63)_82%)] mt-7 lg:mt-0 w-full lg:max-w-[30%] mx-auto lg:mx-0">
               <h3 className="font-semibold text-2xl">Nos coordonnées</h3>
               <p className="leading-7 mt-5">
                 Tu préfères nous contacter directement ? Voici comment nous joindre.

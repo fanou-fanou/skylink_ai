@@ -40,7 +40,7 @@ export default function Navbar() {
           </ul>
 
           {/* Boutons Desktop */}
-          <div className="hidden lg:flex space-x-3 lg:space-x-1">
+          <div className="hidden lg:flex space-x-3 lg:space-x-4">
             <Button href="#login" variant="secondary">Se connecter</Button>
             <Button href="#register">S’inscrire</Button>
           </div>

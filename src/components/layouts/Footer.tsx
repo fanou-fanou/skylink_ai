@@ -5,7 +5,7 @@ import { socialNetwork } from "@/lib/data";
 
 export default function Footer() {
     return (
-        <footer className="pt-35">
+        <footer className="pt-35 px-0 md:px-10 lg:px-10">
             <div className="container mx-auto  pb-6">
                 {/* Flex + Wrap pour responsive */}
                 <div className="flex flex-col md:flex-row md:flex-wrap lg:flex-nowrap gap-y-8 px-6 md:px-0">

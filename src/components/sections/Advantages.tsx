@@ -73,7 +73,7 @@ export default function Advantages() {
           <div className="w-full lg:w-[40%] mt-12 md:mt-0 order-2 relative">
             <Image src={wave} alt="wave" className="absolute hidden lg:block lg:-top-60 -right-0" />
 
-            <div className="w-fit ml-auto md:mx-auto md:mt-30 bg-[rgba(72,73,77,0.68)] px-4 lg:px-10 rounded-3xl py-15 backdrop-blur-[2px] shadow relative">
+            <div className="w-full lg:w-fit ml-auto md:mx-auto md:mt-30 bg-[rgba(72,73,77,0.68)] px-4 lg:px-10 rounded-3xl py-15 backdrop-blur-[2px] shadow relative">
               <Image src={wave_mobile} alt="wave" className="absolute block md:hidden -top-80 right-0" />
               <h2 className="text-center text-2xl md:text-3xl font-bold">Ce que vous obtenez</h2>
               {advantageAside.map(({ icon, title, description, percentage }, i) => (

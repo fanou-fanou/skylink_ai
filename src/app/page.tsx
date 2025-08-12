@@ -6,20 +6,36 @@ import Contact from "@/components/sections/Contact";
 import Features from "@/components/sections/Features";
 import Hero from "@/components/sections/Hero";
 import Testimonials from "@/components/sections/Testimonials";
+import { JSX } from "react";
 
-export default function Home() {
+/**
+ * Composant principal de la page d'accueil
+ * 
+ * Rassemble les différentes sections clés du site :
+ * - Barre de navigation
+ * - Section héros avec message d'accroche
+ * - Avantages de la solution
+ * - Chatbot intégré
+ * - Fonctionnalités principales
+ * - Témoignages clients
+ * - Formulaire de contact
+ * - Pied de page
+ * 
+ * @returns {JSX.Element} Structure complète de la page d'accueil
+ */
+export default function Home(): JSX.Element {
   return (
     <>
-      <Navbar/>
+      <Navbar />
       <main>
-          <Hero/>
-          <Advantages/>
-          <Chatbot/>
-          <Features/>
-          <Testimonials />
-          <Contact />
+        <Hero />
+        <Advantages />
+        <Chatbot />
+        <Features />
+        <Testimonials />
+        <Contact />
       </main>
       <Footer />
     </>
-  )
+  );
 }

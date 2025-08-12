@@ -21,7 +21,6 @@ import testimonials_4 from "@/assets/images/testimonials_4-min.jpg";
 import { StaticImageData } from "next/image";
 import { JSX } from "react";
 
-
 import phone from "@/assets/icons/phone.svg";
 import email from "@/assets/icons/email.svg";
 import place from "@/assets/icons/place.svg";
@@ -32,18 +31,20 @@ import x from "@/assets/icons/x.svg";
 import github from "@/assets/icons/github.svg";
 import { StaticImport } from "next/dist/shared/lib/get-img-props";
 
-
 /**
- * Type representing a simple advantage item.
+ * Représente un avantage simple avec icône, titre et description.
  */
 interface Advantage {
-  icon: string;          // Path to the imported SVG icon
-  title: string;         // Advantage title
-  description: string;   // Description of the advantage
+  /** Chemin vers l’icône SVG importée */
+  icon: string;
+  /** Titre de l’avantage */
+  title: string;
+  /** Description détaillée de l’avantage */
+  description: string;
 }
 
 /**
- * List of main advantages with icon, title, and description.
+ * Liste des avantages principaux affichés.
  */
 export const advantages: Advantage[] = [
   {
@@ -64,14 +65,15 @@ export const advantages: Advantage[] = [
 ];
 
 /**
- * Type representing an advantage with an additional percentage field.
+ * Représente un avantage avec un pourcentage d’amélioration affiché.
  */
 interface AdvantageAside extends Advantage {
-  percentage: string;    // Improvement or gain percentage as a string (e.g., "+ 70%", "- 50%")
+  /** Indication en pourcentage (ex: "+ 70%", "- 50%") */
+  percentage: string;
 }
 
 /**
- * List of secondary advantages including percentage indicators.
+ * Liste secondaire des avantages avec indicateurs de pourcentage.
  */
 export const advantageAside: AdvantageAside[] = [
   {
@@ -101,75 +103,100 @@ export const advantageAside: AdvantageAside[] = [
 ];
 
 /**
- * Type representing a feature with icon, title, and description.
+ * Représente une fonctionnalité détaillée avec icône, titre,
+ * description et position verticale pour affichage.
  */
-
 interface Feature {
-  icon: string | StaticImageData; // Path to the SVG icon
-  title: string | JSX.Element;    // Can be plain text or JSX
-  description: string | JSX.Element; // Same here if you want <br/> etc.
-  top: number;                    // Position offset in pixels
+  /** Icône SVG ou image statique */
+  icon: string | StaticImageData;
+  /** Titre de la fonctionnalité, peut contenir du JSX */
+  title: string | JSX.Element;
+  /** Description détaillée, peut contenir du JSX */
+  description: string | JSX.Element;
+  /** Décalage vertical (en pixels) pour positionnement visuel */
+  top: number;
 }
 
 /**
- * List of detailed product/service features.
+ * Liste des fonctionnalités détaillées du produit/service.
  */
 export const features: Feature[] = [
   {
     icon: chatbot,
     title: "Chatbot intelligent intégré",
     description: "Répond automatiquement à 5 questions fréquentes grâce à l’IA.",
-    top: 26
+    top: 26,
   },
   {
     icon: devices,
     title: "Hero responsive et attractif",
     description: "Une section d’accueil visuellement percutante et mobile-friendly.",
-    top: 18
+    top: 18,
   },
   {
     icon: seomobile,
-    title: <>Génération automatique<br /> de balises SEO</>,
+    title: (
+      <>
+        Génération automatique
+        <br />
+        de balises SEO
+      </>
+    ),
     description: "Optimise votre présence sur Google sans effort manuel.",
-    top: 16
+    top: 16,
   },
   {
     icon: database,
-    title: <>Formulaire connecté à<br /> Supabase + Slack</>,
+    title: (
+      <>
+        Formulaire connecté à
+        <br />
+        Supabase + Slack
+      </>
+    ),
     description: "Collecte de données centralisée et notifications en temps réel.",
-    top: 16
+    top: 16,
   },
   {
     icon: boat,
-    title: <>Score PageSpeed mobile<br /> plus 70 garanti</>,
+    title: (
+      <>
+        Score PageSpeed mobile
+        <br />
+        plus 70 garanti
+      </>
+    ),
     description: "Performance assurée pour une expérience utilisateur rapide.",
-    top: 27
+    top: 27,
   },
   {
     icon: security,
     title: "Architecture sécurisée",
     description: "Protection des données utilisateurs avec les bonnes pratiques modernes.",
-    top: 16
+    top: 16,
   },
 ];
 
-
 /**
- * Type representing a client testimonial with image, text, and name.
+ * Représente un témoignage client avec image, texte et nom.
  */
 interface Testimonial {
-  image: StaticImageData;       // Path to the imported JPG image
-  text: string;        // Testimonial text
-  name: string;        // Name of the person giving the testimonial
+  /** Image statique importée du client */
+  image: StaticImageData;
+  /** Texte du témoignage */
+  text: string;
+  /** Nom du client */
+  name: string;
 }
 
 /**
- * List of client testimonials.
+ * Liste des témoignages clients.
  */
 export const testimonials: Testimonial[] = [
   {
     image: testimonials_3,
-    text: "Je perdais trop de temps à répondre aux interrogations répétées de mes clients. Maintenant, avec cette IA, tout est géré en temps réel et je peux avancer sur mes projets prioritaires.",
+    text:
+      "Je perdais trop de temps à répondre aux interrogations répétées de mes clients. Maintenant, avec cette IA, tout est géré en temps réel et je peux avancer sur mes projets prioritaires.",
     name: "Julie Martin",
   },
   {
@@ -192,49 +219,62 @@ export const testimonials: Testimonial[] = [
   },
 ];
 
-
+/**
+ * Représente un contact avec icône et valeur affichée.
+ */
 interface Contact {
-  image: StaticImport;  
+  /** Icône SVG importée */
+  image: StaticImport;
+  /** Valeur de contact (téléphone, email, adresse, etc.) */
   value: string;
 }
 
-
-export  const contact: Contact[] = [
+/**
+ * Liste des contacts à afficher.
+ */
+export const contact: Contact[] = [
   {
     image: phone,
-    value: "078.268.24.98"
+    value: "078.268.24.98",
   },
   {
     image: email,
-    value: "skylinkagency.pro@gmail.com"
+    value: "skylinkagency.pro@gmail.com",
   },
   {
     image: place,
-    value: "Genève"
-  }
-]
+    value: "Genève",
+  },
+];
 
-
+/**
+ * Représente un réseau social avec icône et lien URL.
+ */
 interface SocialNetwork {
+  /** Icône SVG importée */
   image: StaticImport;
+  /** URL vers le profil du réseau social */
   link: string;
 }
 
+/**
+ * Liste des réseaux sociaux à afficher.
+ */
 export const socialNetwork: SocialNetwork[] = [
   {
     image: facebook,
-    link: "https://www.facebook.com/profile.php?id=61569180991583#"
+    link: "https://www.facebook.com/profile.php?id=61569180991583#",
   },
   {
     image: instagram,
-    link: "https://www.instagram.com/sky.linkagency/"
+    link: "https://www.instagram.com/sky.linkagency/",
   },
   {
-     image: x,
-    link: "https://www.x.com"
+    image: x,
+    link: "https://www.x.com",
   },
-   {
-     image: github,
-    link: "https://www.github.com/"
-  }
-]
+  {
+    image: github,
+    link: "https://www.github.com/",
+  },
+];

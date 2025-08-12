@@ -37,10 +37,10 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true });
   } catch (err: unknown) {
-  let message = "Invalid data";
-  if (err instanceof Error) {
-    message = err.message;
+    let message = "Invalid data";
+    if (err instanceof Error) {
+      message = err.message;
+    }
+    return NextResponse.json({ error: message }, { status: 400 });
   }
-  return NextResponse.json({ error: message }, { status: 400 });
-}
 }

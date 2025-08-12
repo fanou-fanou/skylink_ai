@@ -3,6 +3,10 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 import { MouseEventHandler } from "react";
 
+/**
+ * Configuration des variantes CSS pour le composant Button
+ * via class-variance-authority (CVA).
+ */
 const buttonVariants = cva(
   "px-5 py-2 rounded-md font-medium transition-colors duration-200 cursor-pointer",
   {
@@ -26,12 +30,34 @@ const buttonVariants = cva(
   }
 );
 
+/**
+ * Props du composant Button.
+ * 
+ * @typedef ButtonProps
+ * @property {string} [href] - URL de navigation. Si fourni, le bouton devient un lien.
+ * @property {boolean} [disabled] - Indique si le bouton est désactivé.
+ * @property {"primary" | "secondary" | "accent"} [variant] - Variante visuelle du bouton.
+ * @property {"sm" | "md" | "lg"} [size] - Taille du bouton.
+ * @property {React.ReactNode} children - Contenu enfant du bouton.
+ * @property {React.MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>} [onClick] - Gestionnaire d'événement click.
+ * @extends React.ButtonHTMLAttributes<HTMLButtonElement>
+ */
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   href?: string;
 }
 
+/**
+ * Composant Button réutilisable, prenant en charge :
+ * - rendu en lien `<Link>` Next.js si `href` fourni et non désactivé,
+ * - rendu d'un `<button>` sinon,
+ * - affichage d'un `<span>` désactivé si lien `href` fourni mais bouton désactivé,
+ * - styles variant selon props `variant` et `size`.
+ * 
+ * @param {ButtonProps} props - Propriétés du composant.
+ * @returns {JSX.Element} Élément React du bouton ou lien stylisé.
+ */
 export function Button({
   className,
   variant,
@@ -43,11 +69,13 @@ export function Button({
   ...props
 }: ButtonProps) {
   const base = buttonVariants({ variant, size });
+
+  // Composition des classes CSS avec gestion du disabled
   const classes = cn(base, className, disabled ? "cursor-not-allowed opacity-50" : "");
 
-  // If href is provided and NOT disabled -> use Link
+  // Si href est défini et bouton non désactivé, utiliser le composant Link Next.js
   if (href && !disabled) {
-    // Only pass safe props to Link (don't spread raw button props).
+    // On cast onClick pour correspondre au type attendu de Link
     return (
       <Link href={href} className={classes} onClick={onClick as MouseEventHandler}>
         {children}
@@ -55,7 +83,7 @@ export function Button({
     );
   }
 
-  // If href but disabled -> render non-clickable element for accessibility
+  // Si href défini mais bouton désactivé, afficher un span non cliquable pour accessibilité
   if (href && disabled) {
     return (
       <span className={classes} aria-disabled="true" tabIndex={-1}>
@@ -64,7 +92,7 @@ export function Button({
     );
   }
 
-  // Normal button
+  // Sinon, rendu normal d'un bouton HTML
   return (
     <button className={classes} disabled={disabled} onClick={onClick} {...props}>
       {children}

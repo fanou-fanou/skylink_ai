@@ -1,37 +1,53 @@
 @import "tailwindcss";
 
-/* Theme customization */
+/* 
+ * Personnalisation du thème
+ * Définition des variables CSS pour les couleurs de la marque et la typographie
+ */
 @theme {
-  /* Brand colors */
+  /* Couleur principale - Bleu clair */
   --color-primary: #00B4D8;
-  /* Light blue */
+
+  /* Couleur secondaire - Très sombre */
   --color-secondary: #07070D;
-  /* Dark background */
+
+  /* Couleur d'accentuation - Orange */
   --color-accent: #C87851;
-  /* Orange */
+
+  /* Couleur grise pour fonds ou éléments secondaires */
   --color-gray: #252836;
-  /* Secondary text */
+
+  /* Gris pour texte secondaire */
   --cugray: #48494D;
 
-  /* Font families */
+  /* Famille de polices utilisée globalement */
   --font-sans: var(--font-inter), sans-serif;
 }
 
-/* Base styles */
+/* 
+ * Styles de base globaux 
+ */
 @layer base {
   html {
+    /* Activation du défilement fluide sur la page */
     scroll-behavior: smooth;
   }
 
   body {
+    /* Application du fond sombre, texte blanc et rendu antialiasé */
     @apply bg-secondary text-white antialiased;
   }
 
   a {
+    /* Transition douce des couleurs sur les liens */
     @apply transition-colors duration-200;
   }
 }
 
+/* 
+ * Classe utilitaire d'ombre portée légère blanche
+ * Utilisée pour donner un léger effet de halo autour d'éléments
+ */
 .shadow {
   box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.288);
 }

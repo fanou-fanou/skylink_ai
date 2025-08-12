@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Inter } from "next/font/google";
+import { JSX } from "react";
 
+/**
+ * Configuration de la police Google Inter avec différents poids
+ * et optimisation pour un rendu fluide grâce au swap.
+ */
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
@@ -9,6 +14,9 @@ const inter = Inter({
   variable: "--font-inter",
 });
 
+/**
+ * Métadonnées globales de l'application pour SEO et réseaux sociaux
+ */
 export const metadata: Metadata = {
   title: "Skylink Agency IA - Lancez votre projet IA en 7 jours",
   description:
@@ -55,11 +63,17 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Composant principal racine de l'application Next.js
+ * @param {Object} props - Propriétés du composant
+ * @param {React.ReactNode} props.children - Contenu enfant à rendre dans le layout
+ * @returns {JSX.Element} Structure HTML globale avec langue FR et police personnalisée
+ */
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
-}) {
+}): JSX.Element {
   return (
     <html lang="fr">
       <body className={`${inter.variable} font-sans`}>{children}</body>

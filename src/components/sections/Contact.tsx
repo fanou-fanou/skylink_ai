@@ -1,8 +1,7 @@
 import Image from "next/image";
 import ellipse_spread from "@/assets/images/ellipse_spread.svg";
-
-import { Button } from "../ui/Button";
 import { contact } from "@/lib/data";
+import ContactForm from "../features/ContactForm";
 
 export default function Contact() {
   return (
@@ -27,62 +26,7 @@ export default function Contact() {
           <div className="flex flex-col lg:flex-row">
             {/* Formulaire — mobile et md en premier */}
             <div className="order-1 lg:order-2 flex-1 mt-7 px-4 lg:px-0 max-w-full lg:max-w-none">
-              <form className="relative">
-                <div className="flex flex-col sm:flex-row">
-                  <div className="mt-3 p-5 w-full">
-                    <label htmlFor="fullname" className="font-semibold">
-                      Nom Complet:{" "}
-                    </label>
-                    <input
-                      type="text"
-                      id="fullname"
-                      name="fullname"
-                      className="mt-3 w-full border-b border-white p-2 text-lg"
-                    />
-                  </div>
-                  <div className="mt-3 p-5 w-full">
-                    <label htmlFor="email" className="font-semibold">
-                      Adresse E-mail:{" "}
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="mt-3 w-full border-b border-white p-2 text-lg"
-                    />
-                  </div>
-                </div>
-                <div className="mt-3 p-5">
-                  <label htmlFor="subject" className="font-semibold">
-                    Objet:{" "}
-                  </label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    className="mt-3 w-full border-b border-white p-2 text-lg"
-                  />
-                </div>
-                <div className="mt-3 p-5">
-                  <label
-                    htmlFor="message"
-                    className="font-semibold text-primary"
-                  >
-                    Message:{" "}
-                  </label>
-                  <textarea
-                    name="message"
-                    rows={10}
-                    id="message"
-                    className="mt-3 w-full border-b border-primary p-2 text-lg"
-                  ></textarea>
-                </div>
-                <div className="mt-3 p-5">
-                  <Button type="submit" className="font-semibold text-white">
-                    Envoyer
-                  </Button>
-                </div>
-              </form>
+              <ContactForm/>
             </div>
 
             {/* Coordonnées */}

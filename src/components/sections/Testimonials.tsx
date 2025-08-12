@@ -6,16 +6,21 @@ import quote from "@/assets/icons/quote.svg";
 import { useState, useRef, useEffect } from "react";
 
 export default function Testimonials() {
-  const [activeIndex, setActiveIndex] = useState(1);
+  const [activeIndex, setActiveIndex] = useState(0);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const hasScrolledRef = useRef(false);
 
   useEffect(() => {
-    if (cardRefs.current[activeIndex]) {
-      cardRefs.current[activeIndex].scrollIntoView({
-        behavior: "smooth",
-        inline: "center",
-        block: "nearest",
-      });
+    if (hasScrolledRef.current) {
+      if (cardRefs.current[activeIndex]) {
+        cardRefs.current[activeIndex].scrollIntoView({
+          behavior: "smooth",
+          inline: "center",
+          block: "nearest",
+        });
+      }
+    } else {
+      hasScrolledRef.current = true; // On ignore le premier rendu pour éviter le scroll automatique
     }
   }, [activeIndex]);
 
@@ -56,8 +61,7 @@ export default function Testimonials() {
             <button
               key={i}
               onClick={() => setActiveIndex(i)}
-              className={`h-2 transition-all duration-300 ${activeIndex !== i ? "bg-gray w-8" : "bg-primary w-12"
-                }`}
+              className={`h-2 transition-all duration-300 ${activeIndex !== i ? "bg-gray w-8" : "bg-primary w-12"}`}
             ></button>
           ))}
         </div>
@@ -122,8 +126,7 @@ export default function Testimonials() {
                     <button
                       key={i}
                       onClick={() => setActiveIndex(i)}
-                      className={`h-2 transition-all duration-300 ${activeIndex !== i ? "bg-gray w-10" : "bg-primary w-20"
-                        }`}
+                      className={`h-2 transition-all duration-300 ${activeIndex !== i ? "bg-gray w-10" : "bg-primary w-20"}`}
                     ></button>
                   ))}
                 </div>

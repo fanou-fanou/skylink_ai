@@ -139,7 +139,7 @@ _De quoi souhaitez-vous parler ?_`
   );
 
   return (
-    <section className="fixed z-[999] bottom-[50px] right-[30px] w-fit">
+    <section className="fixed z-[999] bottom-[70px] lg:bottom-[50px] right-[30px] w-fit">
       {/* Bouton pour ouvrir le chatbot si fermé */}
       {!isChatOpen ? (
         <div

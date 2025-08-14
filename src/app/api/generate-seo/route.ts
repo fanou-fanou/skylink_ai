@@ -10,33 +10,24 @@ interface SEOResponse {
 }
 
 /**
- * Handler POST pour la génération SEO.
+ * POST handler pour la génération automatique d'un titre SEO et d'une meta description.
  * 
- * Cette route API reçoit un contenu textuel, l'envoie au modèle OpenAI pour générer :
- * - Un **titre SEO** concis et optimisé
- * - Une **meta description** claire et engageante
+ * Cette route API :
+ * 1. Reçoit un contenu texte depuis le client
+ * 2. Valide que le contenu est bien une chaîne non vide
+ * 3. Appelle le modèle OpenAI pour générer un titre SEO et une meta description optimisés
+ * 4. Retourne ces données au format JSON
  * 
- * ## Processus :
- * 1. Lecture et validation du `content` envoyé dans le corps de la requête
- * 2. Appel à l'API OpenAI avec des instructions précises pour la génération
- * 3. Extraction du titre et de la description à partir de la réponse
- * 4. Retour des données SEO au format JSON
- * 
- * ## Codes de réponse :
- * - **200** : Succès avec titre et description générés
- * - **400** : Erreur de validation (contenu absent ou invalide)
- * - **500** : Erreur interne lors de l'appel ou du traitement
- * 
- * @param request - Objet `NextRequest` représentant la requête entrante
- * @returns {Promise<NextResponse<SEOResponse>>} Réponse JSON contenant le titre et la description SEO
+ * @param request - L'objet `NextRequest` représentant la requête entrante
+ * @returns {Promise<NextResponse<SEOResponse>>} - Réponse JSON contenant `title` et `description`
  */
 export async function POST(request: NextRequest): Promise<NextResponse<SEOResponse>> {
   try {
-    // Récupération et parsing du corps JSON
+    // Lecture et parsing du corps JSON de la requête
     const body = await request.json();
     const content = body.content;
 
-    // Validation du contenu
+    // Validation du contenu : il doit être une chaîne non vide
     if (typeof content !== "string" || content.trim() === "") {
       return NextResponse.json(
         { title: "", description: "", error: "Content is required and must be a non-empty string" },
@@ -44,36 +35,49 @@ export async function POST(request: NextRequest): Promise<NextResponse<SEORespon
       );
     }
 
-    // Appel au modèle OpenAI pour générer les données SEO
+    /**
+     * Appel à l'API OpenAI pour générer le titre et la description.
+     * On force un format strict :
+     * Titre: ...
+     * Description: ...
+     */
     const completion = await openai.chat.completions.create({
       model: "gpt-4o-mini",
       messages: [
         {
           role: "system",
-          content: "Tu es un expert SEO qui génère un titre et une description concis pour une page web."
+          content:
+            "Tu es un expert SEO. Réponds STRICTEMENT au format suivant sans texte supplémentaire :\n" +
+            "Titre: <ton titre optimisé>\n" +
+            "Description: <ta meta description optimisée>"
         },
         {
           role: "user",
-          content: `Génère un titre SEO et une meta description pour ce contenu : ${content}`
+          content: `Voici le contenu : ${content}`
         }
       ],
-      max_tokens: 60,
+      max_tokens: 150, // Tokens suffisants pour éviter une réponse tronquée
+      temperature: 0.7 // Un peu de créativité tout en restant pertinent
     });
 
-    // Extraction du texte de la réponse
+    // Récupération du texte généré par OpenAI
     const text = completion.choices?.[0]?.message?.content ?? "";
 
-    // Extraction du titre et de la description avec Regex
+    // Extraction du titre et de la description via regex
     const titleMatch = text.match(/Titre:\s*(.+)/i);
     const descriptionMatch = text.match(/Description:\s*(.+)/i);
 
-    const title = titleMatch ? titleMatch[1].trim() : "Titre par défaut";
-    const description = descriptionMatch ? descriptionMatch[1].trim() : "Description par défaut";
+    // Si non trouvé, on utilise une valeur par défaut
+    const title = titleMatch?.[1]?.trim() || "Titre par défaut";
+    const description = descriptionMatch?.[1]?.trim() || "Description par défaut";
 
-    // Réponse JSON avec les données SEO
+    // Réponse JSON avec les données SEO générées
     return NextResponse.json({ title, description }, { status: 200 });
-  } catch {
-    // Gestion des erreurs internes
+  } catch (error) {
+    // Log serveur pour déboguer
+    console.error("Erreur SEO:", error);
+
+    // Réponse en cas d'erreur serveur
     return NextResponse.json(
       { title: "", description: "", error: "Erreur serveur lors de la génération SEO" },
       { status: 500 }

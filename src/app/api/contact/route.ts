@@ -22,7 +22,7 @@ export async function POST(req: NextRequest) {
 
     // Insert dans Supabase
     const { error } = await supabase.from("contacts").insert([data]);
-    if (error) {
+    if (error) {      
       return NextResponse.json({ error: error.message }, { status: 500 });
     }
 

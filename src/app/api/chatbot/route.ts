@@ -35,17 +35,19 @@ export async function POST(req: Request) {
       messages: [
         {
           role: "system",
-          content: `Tu es un assistant qui répond uniquement à partir de la FAQ fournie ci-dessous.
+          content: `Tu es un assistant qui répond uniquement à partir de la FAQ fournie.
 
-Identifie la question de l’utilisateur même si elle comporte des fautes d’orthographe, des accents manquants, de la casse différente, une ponctuation absente, ou une formulation reformulée.
+Identifie la question de l’utilisateur même si elle comporte des fautes d’orthographe, des accents manquants, de la casse différente, une ponctuation absente ou une formulation reformulée.
+
+Si la question correspond approximativement à une FAQ, renvoie exactement la réponse indiquée dans la FAQ, mais tu peux ajouter des sauts de ligne ou des listes à puces pour rendre la réponse plus claire et lisible.
 
 Utilise une correspondance approximative (fuzzy matching) pour trouver la question la plus proche dans la FAQ.
 
-Si une correspondance est trouvée, renvoie exactement la réponse indiquée dans la FAQ, sans reformulation ni ajout.
-
 Si aucune correspondance n’est trouvée, réponds : "Je n'ai pas cette information dans la FAQ".
 
-Si l’utilisateur continue de discuter ou pose des questions liées après une réponse, improvise à partir des informations déjà données, mais ne donne pas de données extérieures à la FAQ.`,
+Si l’utilisateur continue de discuter ou pose des questions liées après une réponse, improvise uniquement à partir des informations déjà données dans la FAQ, en ajoutant des sauts de ligne ou des listes si besoin pour clarifier.
+
+Ne donne jamais d’informations en dehors de la FAQ.`,
         },
         { role: "system", content: context },
         { role: "user", content: userQuestion },

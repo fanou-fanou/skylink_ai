@@ -8,6 +8,7 @@ import robot_one from "@/assets/icons/robot_one.svg";
 import close_square from "@/assets/icons/close_square.svg";
 import send from "@/assets/icons/send.svg";
 import { frequentlyAskedQuestions } from "@/lib/faq";
+import ReactMarkdown from "react-markdown";
 
 /**
  * Type représentant un message échangé dans le chatbot
@@ -35,9 +36,11 @@ const MessageBubble = memo(function MessageBubble({ from, text }: Message) {
   className={`${baseClasses} mx-${isUser ? "1" : "2"} ${
     isUser ? "bg-[rgba(0,180,216,0.42)]" : "bg-gray"
   }`}
-  style={{ whiteSpace: "pre-line" }}
+  style={{
+    whiteSpace: "pre-line",
+  }}
 >
-  {text}
+  <ReactMarkdown>{text}</ReactMarkdown>
 </div>
     </div>
   );
@@ -85,7 +88,7 @@ De quoi souhaitez-vous parler ?`
    */
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages, loading]);
+  }, [messages, loading , isChatOpen]);
 
   /**
    * Fonction pour envoyer un message utilisateur

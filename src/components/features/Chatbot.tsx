@@ -7,6 +7,7 @@ import hubot from "@/assets/icons/hubot.svg";
 import robot_one from "@/assets/icons/robot_one.svg";
 import close_square from "@/assets/icons/close_square.svg";
 import send from "@/assets/icons/send.svg";
+import { frequentlyAskedQuestions } from "@/lib/faq";
 
 /**
  * Type représentant un message échangé dans le chatbot
@@ -31,12 +32,13 @@ const MessageBubble = memo(function MessageBubble({ from, text }: Message) {
   return (
     <div className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
       <div
-        className={`${baseClasses} mx-${isUser ? "1" : "2"} ${
-          isUser ? "bg-[rgba(0,180,216,0.42)]" : "bg-gray"
-        }`}
-      >
-        {text}
-      </div>
+  className={`${baseClasses} mx-${isUser ? "1" : "2"} ${
+    isUser ? "bg-[rgba(0,180,216,0.42)]" : "bg-gray"
+  }`}
+  style={{ whiteSpace: "pre-line" }}
+>
+  {text}
+</div>
     </div>
   );
 });
@@ -55,9 +57,22 @@ export default function Chatbot(): JSX.Element {
   // État du texte saisi par l'utilisateur
   const [input, setInput] = useState("");
   // Historique des messages échangés dans le chat
-  const [messages, setMessages] = useState<Message[]>([
-    { from: "bot", text: "Bonjour, comment puis-je vous aider ?" },
-  ]);
+const [messages, setMessages] = useState<Message[]>([
+  { 
+    from: "bot", 
+    text: `Bonjour 👋  
+
+Je peux vous aider sur les sujets suivants:  
+
+- ${frequentlyAskedQuestions[0].question}
+- ${frequentlyAskedQuestions[1].question}  
+- ${frequentlyAskedQuestions[2].question}  
+- ${frequentlyAskedQuestions[3].question}  
+- ${frequentlyAskedQuestions[4].question}  
+
+De quoi souhaitez-vous parler ?` 
+  },
+]);
   // Indicateur de chargement lors de la requête au backend
   const [loading, setLoading] = useState(false);
 

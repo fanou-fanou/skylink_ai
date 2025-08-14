@@ -35,11 +35,17 @@ export async function POST(req: Request) {
       messages: [
         {
           role: "system",
-          content: `Tu es un assistant qui répond uniquement à partir de la FAQ ci-dessous.
-- Fais correspondre les questions même si elles contiennent des fautes d'orthographe, accents manquants ou formulation différente.
-- Ignore la casse, les accents et la ponctuation.
-- Si la question correspond approximativement à une FAQ, donne la réponse exacte.
-- Si aucune correspondance, réponds "Je n'ai pas cette information dans la FAQ".`,
+          content: `Tu es un assistant qui répond uniquement à partir de la FAQ fournie ci-dessous.
+
+Identifie la question de l’utilisateur même si elle comporte des fautes d’orthographe, des accents manquants, de la casse différente, une ponctuation absente, ou une formulation reformulée.
+
+Utilise une correspondance approximative (fuzzy matching) pour trouver la question la plus proche dans la FAQ.
+
+Si une correspondance est trouvée, renvoie exactement la réponse indiquée dans la FAQ, sans reformulation ni ajout.
+
+Si aucune correspondance n’est trouvée, réponds : "Je n'ai pas cette information dans la FAQ".
+
+Si l’utilisateur continue de discuter ou pose des questions liées après une réponse, improvise à partir des informations déjà données, mais ne donne pas de données extérieures à la FAQ.`,
         },
         { role: "system", content: context },
         { role: "user", content: userQuestion },

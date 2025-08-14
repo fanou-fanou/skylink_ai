@@ -28,7 +28,7 @@ type Message = {
 const MessageBubble = memo(function MessageBubble({ from, text }: Message) {
   const isUser = from === "user";
   const baseClasses =
-    "w-fit max-w-[80%] break-words px-3 py-2 rounded-lg my-1 text-sm";
+    "w-fit max-w-[80%] break-words p-2 rounded-lg my-1 text-sm";
 
   return (
     <div className={`flex ${isUser ? "justify-end" : "justify-start"}`}>
@@ -36,11 +36,13 @@ const MessageBubble = memo(function MessageBubble({ from, text }: Message) {
   className={`${baseClasses} mx-${isUser ? "1" : "2"} ${
     isUser ? "bg-[rgba(0,180,216,0.42)]" : "bg-gray"
   }`}
-  style={{
-    whiteSpace: "pre-line",
-  }}
 >
-  <ReactMarkdown>{text}</ReactMarkdown>
+  <ReactMarkdown 
+  components={{
+    p: ({ node, ...props }) => <p className="m-1" {...props} />,
+    li: ({ node, ...props }) => <li className="ml-4 m-1 list-disc ml-" {...props} />,
+    strong: ({ node, ...props }) => <strong className="font-semibold" {...props} />,
+  }} >{text}</ReactMarkdown>
 </div>
     </div>
   );
@@ -63,17 +65,17 @@ export default function Chatbot(): JSX.Element {
 const [messages, setMessages] = useState<Message[]>([
   { 
     from: "bot", 
-    text: `Bonjour 👋  
+    text: ` # Bonjour 👋
 
-Je peux vous aider sur les sujets suivants:  
+Je peux vous aider sur les sujets suivants:
 
-- ${frequentlyAskedQuestions[0].question}
-- ${frequentlyAskedQuestions[1].question}  
-- ${frequentlyAskedQuestions[2].question}  
-- ${frequentlyAskedQuestions[3].question}  
-- ${frequentlyAskedQuestions[4].question}  
+- **${frequentlyAskedQuestions[0].question}**
+- **${frequentlyAskedQuestions[1].question}**
+- **${frequentlyAskedQuestions[2].question}**
+- **${frequentlyAskedQuestions[3].question}**
+- **${frequentlyAskedQuestions[4].question}**
 
-De quoi souhaitez-vous parler ?` 
+_De quoi souhaitez-vous parler ?_` 
   },
 ]);
   // Indicateur de chargement lors de la requête au backend

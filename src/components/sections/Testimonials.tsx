@@ -81,7 +81,7 @@ export default function Testimonials() {
             className="absolute right-6 top-8 w-[60px]"
           />
           {/* Photo ronde du client */}
-          <div className="w-20 h-20 absolute -left-3 top-7 overflow-hidden rounded-full border-4 border-secondary">
+          <div className="w-20 h-20 absolute -left-3 top-7 overflow-hidden border-4 border-secondary">
             <Image
               src={testimonials[activeIndex].image}
               alt={`Photo de ${testimonials[activeIndex].name}`}

@@ -177,7 +177,7 @@ export default function Testimonials() {
                   }`}
                 />
                 {/* Photo ronde avec bordure si actif */}
-                <div className="w-25 h-25 absolute -left-4 top-7 overflow-hidden rounded-full">
+                <div className="w-25 h-25 absolute -left-4 top-7 overflow-hidden">
                   <Image
                     src={value.image}
                     alt={`Photo de ${value.name}`}
